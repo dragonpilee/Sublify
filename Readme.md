@@ -157,4 +157,5 @@ MIT License — free to use, modify, and share. Attribution appreciated.
 
 Built on top of the excellent [subliminal](https://github.com/Diaoul/subliminal) library.
 
-Created by **Alan Cyril Sunny** as
+Created by **Alan Cyril Sunny** 
+
