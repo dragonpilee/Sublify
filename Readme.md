@@ -8,7 +8,7 @@
 Sublify is a modern, containerized web application that finds and downloads perfect subtitles for your local video library. It replaces clunky CLI tools with a stunning "Smart Drop Zone" interface.
 
 > [!NOTE]
-> **Why not Netlify?** Sublify is designed to run locally via Docker because it requires direct access to your physical file system (the D: drive) to clean up and subtitle your media. A cloud deployment (like Netlify) cannot interact with your local hard drive.
+> **Why not Netlify or Vercel?** Sublify is designed to run locally via Docker because it requires direct access to your physical file system (the D: drive) to clean up and subtitle your media. Cloud deployments (like Netlify or Vercel) cannot interact with your local hard drive.
 
 ## 🚀 Features
 
