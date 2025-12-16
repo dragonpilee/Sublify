@@ -2,8 +2,13 @@
 
 > **Automated. Beautiful. Cross-Platform.**
 > *Developed with ❤️ by CineGeek*
+>
+> [**View on GitHub**](https://github.com/dragonpilee/Sublify)
 
 Sublify is a modern, containerized web application that finds and downloads perfect subtitles for your local video library. It replaces clunky CLI tools with a stunning "Smart Drop Zone" interface.
+
+> [!NOTE]
+> **Why not Netlify?** Sublify is designed to run locally via Docker because it requires direct access to your physical file system (the D: drive) to clean up and subtitle your media. A cloud deployment (like Netlify) cannot interact with your local hard drive.
 
 ## 🚀 Features
 
