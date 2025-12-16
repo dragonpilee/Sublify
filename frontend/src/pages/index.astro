@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Dashboard from '../components/Dashboard';
+---
+
+<Layout title="Sublify - Subtitle Manager">
+	<main class="min-h-screen bg-cine-900 text-white p-8">
+		<Dashboard client:load />
+	</main>
+</Layout>

@@ -1,161 +1,52 @@
-# ⚡ SUBLIFY - Effortless Subtitle Downloader v1.0
+# Sublify - Cinema-Grade Subtitle Searcher 🎬
 
-![Sublify Banner](https://img.shields.io/badge/Sublify-v1.0-magenta?style=flat-square)
-![Engine](https://img.shields.io/badge/Engine-subliminal-blue?style=flat-square)
-![Creator](https://img.shields.io/badge/Creator-Alan%20Cyril%20Sunny-green?style=flat-square)
-![Python](https://img.shields.io/badge/Language-Python%203.10+-blue)
-![Terminal](https://img.shields.io/badge/UI-Terminal%20(CLI)-purple)
-![MIT License](https://img.shields.io/badge/License-MIT-blue)
+> **Automated. Beautiful. Cross-Platform.**
+> *Developed with ❤️ by CineGeek*
 
-> **Developed by ALAN CYRIL SUNNY**  
-> If you like this project, please ⭐ [star the repository](https://github.com/dragonpilee/sublify)!
+Sublify is a modern, containerized web application that finds and downloads perfect subtitles for your local video library. It replaces clunky CLI tools with a stunning "Smart Drop Zone" interface.
 
----
+## 🚀 Features
 
-## 🧠 SUBLIFY - Effortless Subtitle Downloader
+*   **Smart Drag & Drop**: Just drop your movie file. We find it in your library and download the sub.
+*   **Conflict Resolution**: Intelligent matching system asks you for confirmation if multiple file copies exist.
+*   **Dynamic Stats**: Tracks your total downloads and bandwidth saved.
+*   **Universal Support**: Works with 50+ video formats (`.mkv`, `.mp4`, `.avi`, `.webm`...).
+*   **Cross-Platform**: Run on Windows, Mac, Linux, or a NAS. Control it from your Phone (Android/iOS).
 
-A fast, simple, and reliable terminal-based subtitle downloader powered by [subliminal](https://github.com/Diaoul/subliminal).
+## 🛠️ Installation & Usage
 
-- 💬 Download subtitles for single files or entire folders  
-- 🌍 Multi-language support (e.g., `en`, `hi`, `pt-BR`)  
-- 🔑 OpenSubtitles login for better results  
-- 🛡️ Respects existing subtitles unless forced  
-- 🧪 Dry-run mode to preview downloads  
-- 🖥️ Cross-platform (Windows, macOS, Linux)  
-- ⚡ **Recursive scanning and provider selection for full control**
+### 1. Requirements
+*   [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed.
 
----
+### 2. Quick Start (Windows)
+1.  Clone this repo.
+2.  Open `docker-compose.yml` and check the volume `D:/` is mounted to `/data`. Change this if your movies are elsewhere.
+3.  Run:
+    ```powershell
+    docker-compose up -d --build
+    ```
+4.  Open **[http://localhost:4321](http://localhost:4321)**.
+5.  Drag and drop your files!
 
-## ✨ Features
+### 3. Cross-Platform Setup (Linux / Mac)
+To run Sublify on macOS or Linux, simply update the volume mapping in `docker-compose.yml`:
 
-- **Single File or Folder**: Download for one file or scan entire directories.
-- **Recursive Mode**: Search subfolders automatically.
-- **Multi-language**: Fetch subtitles in multiple languages at once.
-- **OpenSubtitles Login**: Use your credentials for higher quality and fewer limits.
-- **Safe by Default**: Won’t overwrite existing subtitles unless you ask.
-- **Dry-run**: Preview what would be downloaded.
-- **Custom Providers**: Choose from opensubtitles, podnapisi, tvsubtitles, and more.
-- **Cross-platform**: Works on Windows, macOS, and Linux.
-
----
-
-## 🛠️ Tech Stack
-
-- **Language**: Python 3.10+
-- **Subtitle Engine**: [subliminal](https://github.com/Diaoul/subliminal)
-- **Terminal UI**: Command-line interface (CLI)
-- **Dependencies**: `subliminal`, `babelfish`, `click`, `dogpile.cache`, `pysrt`
-
----
-
-## 💻 Requirements
-
-- Python 3.10 or higher
-- Required Python packages (see below)
-- *(Optional)* OpenSubtitles account for best results
-
----
-
-## 📦 Installation
-
-We recommend using a dedicated conda or virtual environment.
-
-### Using Conda (Windows)
-
-```powershell
-conda create -n subs python=3.10 -y
-conda activate subs
-pip install subliminal babelfish click dogpile.cache pysrt
+```yaml
+services:
+  backend:
+    volumes:
+      - /path/to/your/movies:/data  # <--- Update this line
 ```
 
-### Manual Clone
+### 4. Remote Control (Android / iOS)
+Since Sublify runs in Docker, you can access it from any device on your Wi-Fi:
+1.  Find your PC's local IP (e.g., `192.168.1.50`).
+2.  Open `http://192.168.1.50:4321` on your phone.
+3.  **Note**: The app controls the *server's* files. Dropping a file name triggers a download on the *server*, not your phone.
 
-Save `sublify.py` anywhere you like (e.g., `D:\sub\sublify.py`).
-
----
-
-## 🚀 Quick Start
-
-With your environment ready, launch Sublify:
-
-```powershell
-python D:\sub\sublify.py "D:\Movies\Inception (2010).mkv" -l en
-```
-
-You'll see download progress and results in your terminal.  
-Type `--help` for all options.
+## 🤝 Contributing
+Built with Astro, React, Python FastAPI, and TailwindCSS.
+Pull requests welcome!
 
 ---
-
-## 📝 Usage Examples
-
-Download English subtitle for a single movie:
-
-```powershell
-python D:\sub\sublify.py "D:\Movies\Inception (2010).mkv" -l en
-```
-
-Download English + Hindi subtitles for a whole folder, recursively:
-
-```powershell
-python D:\sub\sublify.py "D:\Shows" -r -l en -l hi
-```
-
-Force overwrite existing subs and prefer hearing-impaired versions:
-
-```powershell
-python D:\sub\sublify.py "D:\Movies" -r --force --hi
-```
-
----
-
-## 🔑 OpenSubtitles Login (Recommended)
-
-For better results and fewer rate limits, set environment variables:
-
-```powershell
-setx OPENSUBTITLES_USERNAME "your_username"
-setx OPENSUBTITLES_PASSWORD "your_password"
-```
-
-Restart PowerShell after setting.
-
----
-
-## ⚙️ Options
-
-| Option              | Description                                                                 |
-|---------------------|-----------------------------------------------------------------------------|
-| `-l`, `--language`  | Subtitle language(s) (can be used multiple times)                           |
-| `-r`, `--recursive` | Scan folders recursively                                                    |
-| `--hi`              | Prefer hearing-impaired subtitles                                           |
-| `--force`           | Overwrite existing subtitles                                                |
-| `--dry-run`         | Show actions without downloading                                            |
-| `--provider`        | Specify subtitle providers (default: opensubtitles, podnapisi, tvsubtitles) |
-| `--min-score`       | Minimum score for subtitles                                                 |
-| `--delay`           | Delay between downloads to avoid rate limits                                |
-
----
-
-## 📁 Project Structure
-
-```
-📦 Sublify/
- ┣ sublify.py                # Main script
- ┗ Readme.md                 # Project README
-```
-
----
-
-## 📝 License
-
-MIT License — free to use, modify, and share. Attribution appreciated.
-
----
-
-## 🙌 Credits
-
-Built on top of the excellent [subliminal](https://github.com/Diaoul/subliminal) library.
-
-Created by **Alan Cyril Sunny** 
-
+*© 2024 CineGeek*

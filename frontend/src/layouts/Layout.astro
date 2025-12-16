@@ -1,0 +1,54 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Sublify - The automated, cinema-grade subtitle manager for your local video library. Cross-platform support for Windows, Mac, Linux, and Mobile." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sublify.local/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content="Automated subtitle downloading for your local library. Drag, drop, done." />
+        <meta property="og:image" content="/og-image.jpg" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content="Automated subtitle downloading for your local library. Cross-platform and Dockerized." />
+        
+		<title>{title}</title>
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-cine-900 text-white antialiased">
+		<slot />
+	</body>
+</html>
+<style is:global>
+	/* Global Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #121212; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #404040; 
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+</style>

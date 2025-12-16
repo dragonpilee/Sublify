@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: sublify_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      # Mount drive D as read/write to access media
+      - D:/:/data/
+    environment:
+      - OPENSUBTITLES_USERNAME=${OPENSUBTITLES_USERNAME}
+      - OPENSUBTITLES_PASSWORD=${OPENSUBTITLES_PASSWORD}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: sublify_frontend
+    ports:
+      - "4321:4321"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped

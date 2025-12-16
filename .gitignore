@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Node
+node_modules/
+dist/
+.astro/
+
+# System
+.DS_Store
+Thumbs.db
+
+# App
+stats.json
+data/

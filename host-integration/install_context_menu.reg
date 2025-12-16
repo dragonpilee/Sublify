@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Sublify]
+@="Download Subtitles (Sublify)"
+"Icon"="D:\\Projects\\Sublify\\frontend\\public\\favicon.svg"
+
+[HKEY_CLASSES_ROOT\*\shell\Sublify\command]
+@="\"D:\\Projects\\Sublify\\host-integration\\download_subs.bat\" \"%1\""

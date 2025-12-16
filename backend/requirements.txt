@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+subliminal
+babelfish
+click
+dogpile.cache
+pysrt
+watchdog
+python-multipart
+requests
