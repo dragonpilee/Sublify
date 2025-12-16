@@ -7,12 +7,6 @@
 
 Sublify is a modern, containerized web application that finds and downloads perfect subtitles for your local video library. It replaces clunky CLI tools with a stunning "Smart Drop Zone" interface.
 
-> **Automated. Beautiful. Cross-Platform.**
-> *Developed with ❤️ by CineGeek*
->
-> [**View on GitHub**](https://github.com/dragonpilee/Sublify)
-
-Sublify is a modern, containerized web application that finds and downloads perfect subtitles for your local video library. It replaces clunky CLI tools with a stunning "Smart Drop Zone" interface.
 
 ## 🚀 Features
 
